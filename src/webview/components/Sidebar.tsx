@@ -121,44 +121,51 @@ const Sidebar = () => {
       </div>
       <div style={{ marginBottom: "20px" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-          {jsonFiles.map((file, index) => (
-            <button
-              style={{
-                paddingTop: "8px",
-                paddingBottom: "8px",
-                paddingLeft: "12px",
-                paddingRight: "12px",
-                borderRadius: "12px",
-                backgroundColor: selectedFile === file ? "#7733D6" : "#242424",
-                color: "#fff",
-                border:
-                  selectedFile === file
-                    ? "2px solid #B883FF"
-                    : "2px solid #363636",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                transition: "background-color 0.3s",
-                cursor: "pointer",
-              }}
-              key={index}
-              onClick={() => {
-                setSelectedFile(file);
-                vscode.postMessage({ type: "onViewFile", value: file });
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  selectedFile === file ? "#8844E7" : "#3a3a3a";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  selectedFile === file ? "#7733D6" : "#242424";
-              }}
-            >
-              <i className={`codicon codicon-${"json"}`}></i>
-              {file.split("/").pop()}
-            </button>
-          ))}
+          {jsonFiles.length === 0 ? (
+            <div style={{ fontSize: "14px", color: "#aaa" }}>
+              Create a <code>.rcs.json</code> file to get started
+            </div>
+          ) : (
+            jsonFiles.map((file, index) => (
+              <button
+                style={{
+                  paddingTop: "8px",
+                  paddingBottom: "8px",
+                  paddingLeft: "12px",
+                  paddingRight: "12px",
+                  borderRadius: "12px",
+                  backgroundColor:
+                    selectedFile === file ? "#7733D6" : "#242424",
+                  color: "#fff",
+                  border:
+                    selectedFile === file
+                      ? "2px solid #B883FF"
+                      : "2px solid #363636",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  transition: "background-color 0.3s",
+                  cursor: "pointer",
+                }}
+                key={index}
+                onClick={() => {
+                  setSelectedFile(file);
+                  vscode.postMessage({ type: "onViewFile", value: file });
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor =
+                    selectedFile === file ? "#8844E7" : "#3a3a3a";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor =
+                    selectedFile === file ? "#7733D6" : "#242424";
+                }}
+              >
+                <i className={`codicon codicon-${"json"}`}></i>
+                {file.split("/").pop()}
+              </button>
+            ))
+          )}
         </div>
       </div>
       {hasText ? (

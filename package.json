@@ -1,9 +1,9 @@
 {
-  "name": "rcs",
+  "name": "rbm",
   "displayName": "RCS Business Messaging Visualizer",
   "description": "View and send PinnacleRCS messages in VSCode",
-  "version": "1.0.0",
-  "icon": "icon.png",
+  "version": "1.0.1",
+  "icon": "logo.png",
   "publisher": "PinnacleRCS",
   "preview": false,
   "engines": {
@@ -13,20 +13,21 @@
     "type": "git",
     "url": "https://github.com/pinnacle-dev/rcs-vscode-extension"
   },
+  "galleryBanner": {
+    "color": "#161616",
+    "theme": "dark"
+  },
   "categories": [
-    "Other"
+    "Testing",
+    "Education",
+    "Visualization"
   ],
   "keywords": [
-    "rcs cards",
-    "rcs cards visualizer",
+    "Pinnacle",
     "RBM",
-    "RCS",
     "RCS Business Messaging",
-    "rich communication services",
-    "rcs components",
-    "rcs visualizer",
-    "rcs business messaging",
-    "text messaging"
+    "Text Messaging",
+    "RCS Visualizer"
   ],
   "license": "MIT",
   "activationEvents": [
